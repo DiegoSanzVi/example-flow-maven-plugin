@@ -14,7 +14,4 @@ Here you can find a test repository with the configuration of the flow-maven-plu
 
 https://github.com/DiegoSanzVi/example-flow-maven-plugin
 
-mvn clean install -Dvaadin.productionMode mvn clean package -PproductionMode
-
-If you have any feedback, do not hesitate to send it to me.
-
+`mvn clean install -Dvaadin.productionMode mvn clean package -PproductionMode`
