@@ -1,20 +1,20 @@
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vaadin-flow/Lobby#?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# Using local Node and Yarn
 
-# Skeleton Starter for Vaadin Flow
+By default, vaadin-maven-plugin downloads and installs Node and Yarn from the internet. This behavior can be overridden and the plugin can use locally installed Node and Yarn.
 
-This project can be used as a starting point to create your own Vaadin Flow application.
-It has the necessary dependencies and files to help you get started.
+In order to do this, nodePath and yarnPath parameters should be specified in the plugin configuration:
 
-The best way to use it by via [vaadin.com/start](https://vaadin.com/start) - you can get only the necessary parts and choose the package naming you want to use.
-There is also a [getting started tutorial](https://vaadin.com/docs/v10/flow/introduction/tutorial-get-started.html) based on this project.
+pom.xml com.vaadin flow-maven-plugin 1.1.0.beta4 /usr/local/Cellar/node/10.8.0/bin/node /usr/local/Cellar/yarn/1.9.4/bin/yarn copy-production-files package-for-production
 
-To access it directly from github, clone the repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 installed.
+Note In order to use locally installed tools, both paths should be specified. If any of the paths is not specified, both tools will be downloaded. If both versions and paths are specified, paths are used.
 
-Run using `mvn jetty:run` and open [http://localhost:8080](http://localhost:8080) in browser.
+https://github.com/vaadin/flow/releases
 
-For a full Vaadin Flow application example, there is the Beverage Buddy App Starter for Flow available also from [vaadin.com/start](https://vaadin.com/start) page.
+Here you can find a test repository with the configuration of the flow-maven-plugin:
 
-Branching information:
-* `master` the latest version of the starter, using latest platform snapshot
-* `V10` the version for Vaadin 10
-* `V11` the version for Vaadin 11
+https://github.com/DiegoSanzVi/example-flow-maven-plugin
+
+mvn clean install -Dvaadin.productionMode mvn clean package -PproductionMode
+
+If you have any feedback, do not hesitate to send it to me.
+
